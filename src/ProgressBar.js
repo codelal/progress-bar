@@ -34,8 +34,9 @@ export default function ProgressBar({ percentage, value, maxValue, minValue }) {
 
     return (
         <div>
-            <p>This is a progress bar</p>
-            <progress
+            <p>Progress-bar</p>
+            <label for="percantage">{percentage}</label>
+            <progress id="percentage"
                 className="progress-bar"
                 value={progress}
                 max={max}
