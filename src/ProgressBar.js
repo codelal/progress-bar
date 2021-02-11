@@ -1,25 +1,17 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+let progressWidth;
 
 export default function ProgressBar({ percentage, value, maxValue, minValue }) {
-    console.log(percentage, value, maxValue, minValue);
     const [error, setError] = useState(false);
     const [progress, setProgress] = useState(0);
-    const [max, setMax] = useState();
 
     useEffect(() => {
         if (percentage <= 100 && percentage >= 0) {
-            console.log(percentage);
             setProgress(percentage);
-            setMax(100);
-        } else if (
-            (value >= 0 && value <= 200 && maxValue && minValue) ||
-            minValue === 0
-        ) {
-            percentage = (value / maxValue) * maxValue;
-            console.log(percentage);
+        } else if (value >= 0 && value <= 200 && maxValue && minValue === 0) {
+            percentage = (value / maxValue) * 100;
             setProgress(percentage);
-            setMax(maxValue);
         } else if (percentage < 0) {
             setError(true);
             console.log("you provided a negative percentage");
@@ -32,18 +24,26 @@ export default function ProgressBar({ percentage, value, maxValue, minValue }) {
         }
     }, [percentage, value, maxValue, minValue]);
 
+    if (percentage === 0 || value === 0) {
+        progressWidth = "1%";
+    } else {
+        progressWidth = `${progress}%`;
+    }
+
     return (
-        <div>
-            <p>Progress-bar</p>
-            <label for="percantage">{percentage}</label>
-            <progress id="percentage"
-                className="progress-bar"
-                value={progress}
-                max={max}
-            ></progress>
-            {error && (
-                <progress>⚠️</progress>
-            )}
-        </div>
+        <>
+            <p>Progressbar</p>
+            <div className="progress-bar">
+                {!error && (
+                    <div
+                        className="loading-progress"
+                        style={{ width: progressWidth }}
+                    >
+                        {progress}%
+                    </div>
+                )}
+                {error && <div className="error">⚠️</div>}
+            </div>
+        </>
     );
 }

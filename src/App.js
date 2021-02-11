@@ -9,7 +9,7 @@ function App() {
                     percentage={42}
                     // maxValue={200}
                     // minValue={0}
-                    // value={42}
+                    // value={40}
                 />
             </header>
         </div>
