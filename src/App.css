@@ -18,7 +18,7 @@ h1, h2 {
 
 .loading-progress {
     background-color: rgb(100, 149, 237);
-    min-width:3%;
+    min-width: 3%;
     height: 20px;
     border-radius: 50px;
     color: white;

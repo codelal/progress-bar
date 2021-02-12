@@ -27,15 +27,13 @@ export default function ProgressBar({ percentage, value, maxValue, minValue }) {
         }
     }, [percentage, value, maxValue, minValue]);
 
-    const progressWidth = `${progress}%`;
-
     return (
         <>
             <div className="progress-bar">
                 {!error && (
                     <div
                         className="loading-progress"
-                        style={{ width: progressWidth }}
+                        style={{ width: progress + "%" }}
                     >
                         {progress}%
                     </div>
