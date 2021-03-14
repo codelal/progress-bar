@@ -1,7 +1,7 @@
 # progress-bar
 A reusable React-Component for a simple progress-bar.
 
-![progress-bar](public/progressbar.png)
+![screenshot progress-bar](public/progressbar.png)
 
 
 # Getting Started with Create React App
