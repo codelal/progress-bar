@@ -1,5 +1,5 @@
 # progress-bar
-A reusable React-Component for a simple progress-bar.
+Reusable React components, e.g. a progress-bar and a timer.
 
 ![screenshot progress-bar](public/progressbar.png)
 
